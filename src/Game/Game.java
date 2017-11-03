@@ -1,6 +1,6 @@
 package Game;
 import java.util.Scanner;
-
+import Game.Player;
 import Game.Dice;
 
 
@@ -8,7 +8,21 @@ public class Game {
 	
 	static int turn = 0;
 	static Dice Dice= new Dice();
+	static Player Player1, Player2;
 
+	public static void indtastName() {
+	Scanner name = new Scanner(System.in);
+	
+	System.out.println("Spiller 1 vælger sit navn");
+	Player1 = new Player(name.nextLine());
+
+	System.out.println("Spiller 2 vælger sit navn");
+	Player2 = new Player(name.nextLine());
+	
+	System.out.println("Tryk [ENTER] for at starte spillet");
+	pressEnter();
+	
+	}
 	
 	public static void nextTurn(int turn) {
 		if(turn % 2 == 0) {
