@@ -24,19 +24,7 @@ public class Game {
 	pressEnter();
 	
 	}
-	
-	public static void nextTurn(int turn) {
-		if(turn % 2 == 0) {
-			Dice.rollDice();
-			System.out.print( Player1.getName()  + " slog: " + Dice.getSum());
-			Player1.addPoints(Dice.getSum());
-			
-		} else {
-			Dice.rollDice();
-			System.out.println(Player2.getName()  + " slog: " + Dice.getSum());
-			Player2.addPoints(Dice.getSum());
 
-	
 	public static void nextTurn(int turn) {
 		if(turn % 2 == 0) {
 			Dice.rollDice();
@@ -67,9 +55,3 @@ public class Game {
 		Game.turn++;
 	}
 	
-	public static void pressEnter() {
-		Scanner input = new Scanner(System.in);
-		input.hasNextLine();
-	}
-	
-}
