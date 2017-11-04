@@ -8,22 +8,10 @@ import Game.Player;
 public class Game {
 	
 	static int turn = 0;
-	static Dice Dice= new Dice();
+	Dice dice1;
+	Dice dice2;
+	
 	static Player Player1, Player2;
-
-	public static void indtastName() {
-	Scanner name = new Scanner(System.in);
-	
-	System.out.println("Spiller 1 vælger sit navn");
-	Player1 = new Player(name.nextLine());
-
-	System.out.println("Spiller 2 vælger sit navn");
-	Player2 = new Player(name.nextLine());
-	
-	System.out.println("Tryk [ENTER] for at starte spillet");
-	pressEnter();
-	
-	}
 
 	public static void nextTurn(int turn) {
 		if(turn % 2 == 0) {
@@ -42,6 +30,23 @@ public class Game {
 		}
 		Game.turn++;
 	}
+	
+	public void gameSetup(){
+		Scanner input = new Scanner(System.in);
+		
+		dice1 = new Dice();
+		dice2 = new Dice();
+		
+		System.out.println("Spiller 1 vælger sit navn");
+		Player1 = new Player(input.nextLine());
+
+		System.out.println("Spiller 2 vælger sit navn");
+		Player2 = new Player(input.nextLine());
+		
+		System.out.println("Tryk [ENTER] for at starte spillet");
+		pressEnter();
+	}
+	
 	
 	public static void pressEnter() {
 		Scanner input = new Scanner(System.in);
