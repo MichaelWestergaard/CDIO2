@@ -9,9 +9,4 @@ public class Dice {
 		faceValue = (int)(Math.random()*diceside) + 1; //Terning 1 sættes til at være 1-6
 	}
 	
-	
-	
 }
-
-
-
