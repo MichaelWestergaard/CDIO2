@@ -35,23 +35,32 @@ public class Game {
 		if(gameStarted == false) {
 			gameSetup();
 		}
+		
+		playTurn();
 				
 	}
 	
-	public void nextTurn() {
+	public void playTurn() {
 		int sum = 0;
 		
 		dice1.rollDice();
 		dice2.rollDice();	
 		sum = dice1.getFaceValue() + dice2.getFaceValue();
 		
+		
 		if(turn == 1) {
-			Player1.getAccount().setBalance(sum);
+			//Player1.getAccount().setBalance(sum);
+			//Kode til at bestemme hvor mange point spilleren får herunder
 			turn = 2; //Skifter tur
 		} else if(turn == 2){
-			Player2.getAccount().setBalance(sum);
+			//Player2.getAccount().setBalance(sum);
+			//Kode til at bestemme hvor mange point spilleren får herunder
 			turn = 1; //Skifter tur
 		}
+		
+
+		System.out.println(Player1.getAccount().getBalance());
+		System.out.println(Player2.getAccount().getBalance());
 		
 	}
 		
