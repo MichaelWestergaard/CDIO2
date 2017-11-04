@@ -7,11 +7,11 @@ import Game.Player;
 
 public class Game {
 	
-	int turn = 0;
+	int turn = 1; //Turn = 1 - Player 1s turn || Turn = 2 - Player 2s turn
 	boolean gameStarted = false;
 	
-	Dice dice1, dice2;
-	Player Player1, Player2;
+	public Dice dice1, dice2;
+	public Player Player1, Player2;
 
 	public void gameSetup(){
 		Scanner input = new Scanner(System.in);
@@ -38,25 +38,24 @@ public class Game {
 				
 	}
 	
-//	public static void nextTurn(int turn) {
-//		if(turn % 2 == 0) {
-//			Dice.rollDice();
-//			System.out.print( Player1.getName()  + " slog: " + Dice.getSum());
-//			Player1.addPoints(Dice.getSum());
-//			
-//		} else {
-//			Dice.rollDice();
-//			System.out.println(Player2.getName()  + " slog: " + Dice.getSum());
-//			Player2.addPoints(Dice.getSum());
-//
-//			showScore();
-//			System.out.println();
-//			System.out.println("Tryk [ENTER] for at gå til næste runde");
-//		}
-//		Game.turn++;
-//	}
+	public void nextTurn() {
+		int sum = 0;
 		
-	public static void pressEnter() {
+		dice1.rollDice();
+		dice2.rollDice();	
+		sum = dice1.getFaceValue() + dice2.getFaceValue();
+		
+		if(turn == 1) {
+			Player1.getAccount().setBalance(sum);
+			turn = 2; //Skifter tur
+		} else if(turn == 2){
+			Player2.getAccount().setBalance(sum);
+			turn = 1; //Skifter tur
+		}
+		
+	}
+		
+	public void pressEnter() {
 		Scanner input = new Scanner(System.in);
 		input.hasNextLine();
 	}
