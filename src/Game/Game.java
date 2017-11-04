@@ -37,6 +37,7 @@ public class Game {
 		}
 		
 		playTurn();
+		showScore();
 				
 	}
 	
@@ -58,10 +59,6 @@ public class Game {
 			turn = 1; //Skifter tur
 		}
 		
-
-		System.out.println(Player1.getAccount().getBalance());
-		System.out.println(Player2.getAccount().getBalance());
-		
 	}
 		
 	public void pressEnter() {
@@ -72,9 +69,9 @@ public class Game {
 	public void showScore() {
 		System.out.println("-------------------------------------");
 		System.out.println("Pengebeholdning:");
-		System.out.print(Player1.getName() + ": " + Player1.getAccount());
+		System.out.print(Player1.getName() + ": " + Player1.getAccount().getBalance());
 		System.out.print(" | ");
-		System.out.print(Player2.getName() + ": " + Player2.getAccount());
+		System.out.print(Player2.getName() + ": " + Player2.getAccount().getBalance());
 		System.out.println();
 		System.out.println("-------------------------------------");
 	}
