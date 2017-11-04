@@ -2,12 +2,13 @@ package Game;
 
 public class Account {
 
-	private Int balance;
+	private int balance;
 	
-	public Int setBalance() {
-		return 
+	public void setBalance(int points) {
+		balance += points;
 	}
-	public Int getBalance() {
+	
+	public int getBalance() {
 		return balance;
 	}
 }
