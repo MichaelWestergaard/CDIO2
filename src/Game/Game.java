@@ -7,30 +7,12 @@ import Game.Player;
 
 public class Game {
 	
-	static int turn = 0;
-	Dice dice1;
-	Dice dice2;
+	int turn = 0;
+	boolean gameStarted = false;
 	
-	static Player Player1, Player2;
+	Dice dice1, dice2;
+	Player Player1, Player2;
 
-	public static void nextTurn(int turn) {
-		if(turn % 2 == 0) {
-			Dice.rollDice();
-			System.out.print( Player1.getName()  + " slog: " + Dice.getSum());
-			Player1.addPoints(Dice.getSum());
-			
-		} else {
-			Dice.rollDice();
-			System.out.println(Player2.getName()  + " slog: " + Dice.getSum());
-			Player2.addPoints(Dice.getSum());
-
-			showScore();
-			System.out.println();
-			System.out.println("Tryk [ENTER] for at gå til næste runde");
-		}
-		Game.turn++;
-	}
-	
 	public void gameSetup(){
 		Scanner input = new Scanner(System.in);
 		
@@ -45,18 +27,37 @@ public class Game {
 		
 		System.out.println("Tryk [ENTER] for at starte spillet");
 		pressEnter();
+		gameStarted = true;
 	}
 	
+	public void playGame() {
+		
+		if(gameStarted == false) {
+			gameSetup();
+		}
+				
+	}
 	
+//	public static void nextTurn(int turn) {
+//		if(turn % 2 == 0) {
+//			Dice.rollDice();
+//			System.out.print( Player1.getName()  + " slog: " + Dice.getSum());
+//			Player1.addPoints(Dice.getSum());
+//			
+//		} else {
+//			Dice.rollDice();
+//			System.out.println(Player2.getName()  + " slog: " + Dice.getSum());
+//			Player2.addPoints(Dice.getSum());
+//
+//			showScore();
+//			System.out.println();
+//			System.out.println("Tryk [ENTER] for at gå til næste runde");
+//		}
+//		Game.turn++;
+//	}
+		
 	public static void pressEnter() {
 		Scanner input = new Scanner(System.in);
 		input.hasNextLine();
 	}
-	
-			showScore();
-			System.out.println();
-			System.out.println("Tryk [ENTER] for at gå til næste runde");
-		}
-		Game.turn++;
-	}
-	
+}
