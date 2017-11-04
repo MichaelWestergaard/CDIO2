@@ -59,4 +59,15 @@ public class Game {
 		Scanner input = new Scanner(System.in);
 		input.hasNextLine();
 	}
+	
+	public void showScore() {
+		System.out.println("-------------------------------------");
+		System.out.println("Pengebeholdning:");
+		System.out.print(Player1.getName() + ": " + Player1.getAccount());
+		System.out.print(" | ");
+		System.out.print(Player2.getName() + ": " + Player2.getAccount());
+		System.out.println();
+		System.out.println("-------------------------------------");
+	}
+		
 }
