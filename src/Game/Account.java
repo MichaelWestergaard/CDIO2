@@ -2,7 +2,7 @@ package Game;
 
 public class Account {
 
-	private int balance;
+	private int balance = 1000;
 	
 	public void setBalance(int points) {
 		balance += points;
