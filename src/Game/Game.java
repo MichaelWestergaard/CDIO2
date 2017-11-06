@@ -21,7 +21,7 @@ public class Game {
 	public void gameSetup(){
 		
 		Language lang = new Language();
-		gameText = lang.languageSetup("Dansk");
+		gameText = lang.languageSetup("Dansk.txt");
 		
 		Scanner input = new Scanner(System.in);
 		
