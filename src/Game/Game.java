@@ -1,31 +1,40 @@
 package Game;
 
 import Game.Dice;
+
+import java.util.Map;
 import java.util.Scanner;
 import Game.Player;
-
 
 public class Game {
 	
 	int turn = 1; //Turn = 1 - Player 1s turn || Turn = 2 - Player 2s turn
 	boolean gameStarted = false;
+	public Map<String, String> gameText;
+	
 	
 	public Dice dice1, dice2;
 	public Player Player1, Player2;
-
+	
+	
+	
 	public void gameSetup(){
+		
+		Language lang = new Language();
+		gameText = lang.languageSetup("Dansk");
+		
 		Scanner input = new Scanner(System.in);
 		
 		dice1 = new Dice();
 		dice2 = new Dice();
 		
-		System.out.println("Spiller 1 vælger sit navn");
+		System.out.println(gameText.get("vælgNavn1"));
 		Player1 = new Player(input.nextLine());
 
-		System.out.println("Spiller 2 vælger sit navn");
+		System.out.println(gameText.get("vælgNavn2"));
 		Player2 = new Player(input.nextLine());
 		
-		System.out.println("Tryk [ENTER] for at starte spillet");
+		System.out.println(gameText.get("spilStart"));
 		pressEnter();
 		gameStarted = true;
 	}
@@ -42,12 +51,12 @@ public class Game {
 			
 			if(Player1.getAccount().getBalance() >= 3000 || Player2.getAccount().getBalance() >= 3000) {
 				if(Player1.getAccount().getBalance() > Player2.getAccount().getBalance()) {
-					System.out.println(Player1.getName() + " vandt med " + Player1.getAccount().getBalance() + " point");
+					System.out.println(String.format(gameText.get("vinderTekst"), Player1.getName(), Player1.getAccount().getBalance()));
 				} else {
-					System.out.println(Player2.getName() + " vandt med " + Player2.getAccount().getBalance() + " point");
+					System.out.println(String.format(gameText.get("vinderTekst"), Player2.getName(), Player2.getAccount().getBalance()));
 				}
 			} else {
-				System.out.println("Tryk [ENTER] for at skifte tur");
+				System.out.println(gameText.get("næsteTur"));
 				pressEnter();
 			}
 		}
@@ -72,81 +81,77 @@ public class Game {
 			switch(sum) { //Afgører hvilket felt man lander på.
 				case 2:
 					currentPlayer.getAccount().setBalance(250);
-					System.out.println("Du opdager ruinerne af et tårn, hvori du finder nogle forhistoriske artefakter. Du får 250 point.");
+					System.out.println(gameText.get("felt2"));
 					break;
 
 				case 3:
 					currentPlayer.getAccount().setBalance(-100);
-					System.out.println("På din rejse passerer du et krater, hvor en radioaktivt isotop har ramt jorden. Du bliver udsat for stråling og mister 100 point");			
+					System.out.println(gameText.get("felt3"));			
 					break;
 
 				case 4:
 					currentPlayer.getAccount().setBalance(100);
-					System.out.println("En af paladsets portvagter beder dig løbe et ærinde og betaler dig 100 point.");			
+					System.out.println(gameText.get("felt4"));			
 					break;
 				
 				case 5:
 					currentPlayer.getAccount().setBalance(-20);
-					System.out.println("Du trodser det kolde ørkenklima, men mister 20 point.");			
+					System.out.println(gameText.get("felt52"));			
 					break;
 				
 				case 6:
 					currentPlayer.getAccount().setBalance(180);
-					System.out.println("Da du er på vej ind af byens port, ser du en adelsmand tabe sin pung. Du finder 180 point.");			
+					System.out.println(gameText.get("felt6"));			
 					break;
 				
 				case 7:
 					currentPlayer.getAccount().setBalance(0);
-					System.out.println("Du overnatter på et kloster og vågner veludhvilet.");			
+					System.out.println(gameText.get("felt7"));			
 					break;
 				
 				case 8:
 					currentPlayer.getAccount().setBalance(-70);
-					System.out.println("Du begiver dig ind i en mørk og dyster grotte, men vender straks om da du hører skrig fra grottens dyb. Du kan mærke øjne der observerer dig og mister 70 point.");			
+					System.out.println(gameText.get("felt8"));			
 					break;
 				
 				case 9:
 					currentPlayer.getAccount().setBalance(60);
-					System.out.println("Du jager en bjørn i en afsides bjergby og beboerne belønner dig 60 point.");			
+					System.out.println(gameText.get("felt9"));			
 					break;
 				
 				case 10:
 					i--;
 					currentPlayer.getAccount().setBalance(-80);
-					System.out.println("En vinternat hvor fuldmånen står højt på himlen runder du et skovbryn, "
-							+ " og ser pludselig en enorm mur indhyllet i tåge, hvorpå grotekse og forvredne ulveskikkelser patruljerer "
-							+ "Du gnider febrilsk øjnene, og da du åbner dem igen befinder du dig i din lejr fra i morges. "
-							+ "Du mister 80 point, men får en ekstra tur.");	
+					System.out.println(gameText.get("felt10"));	
 					break;
 				
 				case 11:
 					currentPlayer.getAccount().setBalance(-50);
-					System.out.println("Du ser en fordybning i jorden, men da du læner dig ind over hullet taber du din hat og mister 50 point.");			
+					System.out.println(gameText.get("felt11"));			
 					break;
 				
 				case 12:
 					currentPlayer.getAccount().setBalance(650);
-					System.out.println("Du finder guld i bjergene, sælger det, og tjener 650 point.");			
+					System.out.println(gameText.get("felt12"));			
 					break;
 				
 				default:
-					System.out.println("Ugyldigt terningekast");
+					System.out.println(gameText.get("ugyldigtFelt"));
 					break;
 			}
-		
-		
+
 		}
 	}
 	
 	public void playTurn() {
 		
 		if(turn == 1) {
-			System.out.println(" --- " + Player1.getName() + "s tur --- ");
+			System.out.println(String.format(gameText.get("playerTurn"), Player1.getName()));
 			rollDice();
 			
 			turn = 2; //Skifter tur
 		} else if(turn == 2){
-			System.out.println(" --- " + Player2.getName() + "s tur --- ");
+			System.out.println(String.format(gameText.get("playerTurn"), Player2.getName()));
 			
 			rollDice();
 			
@@ -162,7 +167,7 @@ public class Game {
 	
 	public void showScore() {
 		System.out.println("-------------------------------------");
-		System.out.println("Pengebeholdning:");
+		System.out.println(gameText.get("scoreText"));
 		System.out.print(Player1.getName() + ": " + Player1.getAccount().getBalance());
 		System.out.print(" | ");
 		System.out.print(Player2.getName() + ": " + Player2.getAccount().getBalance());

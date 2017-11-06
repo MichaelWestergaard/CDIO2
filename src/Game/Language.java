@@ -4,19 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 public class Language {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public Map<String, String> languageSetup(String languageFile) {
 		
-		JSONArray languageArray = new JSONArray();
-		JSONObject object = new JSONObject();
-				
-		String file ="src/Languages/Dansk";
+		Map<String, String> gameText = new HashMap<String, String>();
+		String file ="src/Languages/" + languageFile;
+		
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(file));
@@ -24,12 +22,11 @@ public class Language {
 			String currentLine = reader.readLine();
 			
 			for(int i = 0; currentLine != null; i++){
-				
-				System.out.println(currentLine);
-				
+				String lastLine = currentLine;
 				currentLine = reader.readLine();
+				gameText.put(lastLine, currentLine);
 				
-			}			
+			}
 			reader.close();
 		}
 		catch (FileNotFoundException e) {
@@ -41,7 +38,8 @@ public class Language {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		return gameText;
+		
 	}
 }
 

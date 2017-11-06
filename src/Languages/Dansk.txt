@@ -3,7 +3,9 @@ Spiller 1 vælger sit navn
 vælgNavn2
 Spiller 2 vælger sit navn
 spilStart
-Tryk [Enter] for at starte spillet 
+Tryk [Enter] for at starte spillet
+næsteTur
+Tryk [ENTER] for at skifte tur
 felt2
 Du opdager ruinerne af et tårn, hvor i du finder nogle forhistoriske artefakter. Du får 250 point.
 felt3
@@ -26,13 +28,11 @@ felt11
 Du ser en fordybning i jorden, men da du læner dig ind over hullet taber du din hat og mister 50 point.		
 felt12
 Du finder guld i bjergene, sælger det, og tjener 650 point.
-visBalance
+ugyldigtFelt
+Ugyldigt terningekast
+vinderTekst
+%s vandt med %s point
+scoreText
 Pengebeholdning:
-vundetBesked1
-Player1 har vundet
-vundetBesked2
-Player2 har vundet
-tabtBesked1
-Player1 har tabt
-tabtBesked2
-Player2 har tabt
+playerTurn
+--- %ss tur ---
