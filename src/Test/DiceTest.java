@@ -1,16 +1,18 @@
 package Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import Spil.Dice;
+import Game.Dice;
 
 public class DiceTest {
 
 	Dice testDice = new Dice();
+	
+	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
