@@ -5,11 +5,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class Language {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
+		JSONArray languageArray = new JSONArray();
+		JSONObject object = new JSONObject();
+				
 		String file ="src/Languages/Dansk";
 		BufferedReader reader;
 		try {
