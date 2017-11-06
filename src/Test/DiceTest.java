@@ -10,8 +10,8 @@ import Game.Dice;
 
 public class DiceTest {
 
-	Dice testDice = new Dice();
-	
+	Dice testDice1 = new Dice();
+	Dice testDice2 = new Dice();
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -29,8 +29,9 @@ public class DiceTest {
 		
 		for (int i = 0; i < 1000; i++) {
 			
-			testDice.rollDice();
-			rolls[i] = DiceTest.getSum();
+			testDice1.rollDice();
+			testDice2.rollDice();
+			rolls[i] = testDice1.getFaceValue() + testDice2.getFaceValue();
 			switch(rolls[i]) {
 			case 2:
 				twoCount++;
@@ -83,7 +84,7 @@ public class DiceTest {
 
 	@Test
 	public void testGetFaceValue() {
-		fail("Not yet implemented");
+		
 	}
 
 }
