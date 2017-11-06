@@ -15,10 +15,15 @@ public class Language {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			
-			for(int i = 0; i < 41; i++){
-				String currentLine = reader.readLine();
+			String currentLine = reader.readLine();
+			
+			for(int i = 0; currentLine != null; i++){
+				
 				System.out.println(currentLine);
-			} 
+				
+				currentLine = reader.readLine();
+				
+			}			
 			reader.close();
 		}
 		catch (FileNotFoundException e) {
