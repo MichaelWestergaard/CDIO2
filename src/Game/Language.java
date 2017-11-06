@@ -9,25 +9,28 @@ public class Language {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		String file ="src/Languages/Dansk.txt";
+
+		String file ="src/Languages/Dansk";
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(file));
-			String currentLine = reader.readLine();
+			
+			for(int i = 0; i < 41; i++){
+				String currentLine = reader.readLine();
+				System.out.println(currentLine);
+			} 
 			reader.close();
-			for(int i=0;i<40;i++)
-			System.out.println();
-		} catch (FileNotFoundException e) {
+		}
+		catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+
+		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
-		
-	}
-
+}
 
