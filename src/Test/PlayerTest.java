@@ -6,14 +6,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import Game.Dice;
 import Game.Player;
 
 public class PlayerTest {
 	
 	Player player;
-	Player Player1 = new Player();
-	Player Player2 = new Player();
 	
 	@Before
 	public void setUp() throws Exception {
@@ -24,16 +21,15 @@ public class PlayerTest {
 	public void tearDown() throws Exception {
 	}
 
-	@Test
-	public void testGetAccount() { //
-		Player1.getAccount();
-		int expected;
-		testDice1.rollDice();
-		int faceValue = testDice1.getFaceValue();
-		System.out.println(faceValue);
+	@Test //Tester hvorvidt man for objektet player kan kalde metoden getAccount() for at ændre i playerens balance.
+	public void testGetAccount() {
+		player.getAccount().setBalance(200);
+		int expected = 1200;
+		int actual = player.getAccount().getBalance();
+		assertEquals(expected, actual);
 	}
 
-	@Test
+	@Test //Tester om getName() returnerer den rigtige string.
 	public void testGetName() {		
 		String expected = "TestPlayer";
 		String actual = player.getName();
