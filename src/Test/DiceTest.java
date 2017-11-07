@@ -13,7 +13,7 @@ public class DiceTest {
 
 	Dice testDice1 = new Dice();
 	Dice testDice2 = new Dice();
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -23,17 +23,17 @@ public class DiceTest {
 	}
 
 	@Test
-	
+
 	//Test af 'raflebægeret' (diceRoll funktionen) hen over 1000 kast,
 	//samt hvorvidt de stemmer overens med den teoretiske sandsynlighed.
-	
+
 	public void testRollDice() {
 		int[] rolls = new int[1000];
 		int twoCount = 0, threeCount = 0, fourCount = 0, fiveCount = 0, sixCount = 0, sevenCount = 0, eightCount = 0, nineCount = 0,
-			tenCount = 0, elevenCount = 0, twelveCount = 0;
-		
+				tenCount = 0, elevenCount = 0, twelveCount = 0;
+
 		for (int i = 0; i < 1000; i++) {
-			
+
 			testDice1.rollDice();
 			testDice2.rollDice();
 			rolls[i] = testDice1.getFaceValue() + testDice2.getFaceValue();
@@ -73,7 +73,7 @@ public class DiceTest {
 				break;
 			}
 		}
-		
+
 		System.out.println("2: " + twoCount + " ~ " + (double)twoCount/1000*100);			//Sandsynligheden bør være 2,78%
 		System.out.println("3: " + threeCount + " ~ " + (double)threeCount/1000*100);		//Sandsynligheden bør være 5,56% 
 		System.out.println("4: " + fourCount + " ~ " + (double)fourCount/1000*100);  		//Sandsynligheden bør være 8,33%
@@ -88,16 +88,40 @@ public class DiceTest {
 	}
 
 	@Test
-	public void testGetFaceValue() { //skal teste terningen, således for at finde ud af om terningen faktisk lægger inden for 1-6
-		
-			testDice1.faceValue(testDice1);
+	public void testGetFaceValue() { //skal teste terningen, således for at finde ud af om terningen faktisk lægger inden for 1-6 
+		int expected;
+		testDice1.rollDice();
+		int faceValue = testDice1.getFaceValue();
+		System.out.println(faceValue);
+		switch(faceValue){
+		case 1:
+			expected = 1;
+			assertEquals(expected, faceValue);
+			break;
+		case 2:
+			expected = 2;
+			assertEquals(expected, faceValue);
+			break;
+		case 3:
+			expected = 3;
+			assertEquals(expected, faceValue);
+			break;
+		case 4:
+			expected = 4;
+			assertEquals(expected, faceValue);
+			break;
+		case 5:
+			expected = 5;
+			assertEquals(expected, faceValue);
+			break;
+		case 6:
+			expected = 6;
+			assertEquals(expected, faceValue);
+			break;
 			
-			int expected = 7;
-			
-			int actual = testDice.faceValue();
-			
-			assertEquals(expected, actual);
+			default:
+			fail("Tallet ligger ikke inden for 1-6");
+		}
 		
 	}
-
 }
