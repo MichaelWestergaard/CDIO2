@@ -13,7 +13,7 @@ public class PlayerTest {
 	
 	Player player;
 	Player Player1 = new Player();
-	Player
+	Player Player2 = new Player();
 	
 	@Before
 	public void setUp() throws Exception {
