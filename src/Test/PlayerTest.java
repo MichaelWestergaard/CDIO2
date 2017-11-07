@@ -6,19 +6,19 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class PlayerTest {
+import Game.Player;
 
+public class PlayerTest {
+	
+	Player player;
+	
 	@Before
 	public void setUp() throws Exception {
+		player = new Player("TestPlayer");
 	}
 
 	@After
 	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testPlayer() {
-		fail("Not yet implemented");
 	}
 
 	@Test
@@ -27,8 +27,12 @@ public class PlayerTest {
 	}
 
 	@Test
-	public void testGetName() {
-		fail("Not yet implemented");
+	public void testGetName() {		
+		String expected = "TestPlayer";
+		String actual = player.getName();
+		
+		assertEquals(expected, actual);
+		
 	}
 
 }
