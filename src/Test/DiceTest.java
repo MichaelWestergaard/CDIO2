@@ -1,5 +1,6 @@
 package Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.AfterClass;
@@ -22,6 +23,10 @@ public class DiceTest {
 	}
 
 	@Test
+	
+	//Test af 'raflebægeret' (diceRoll funktionen) hen over 1000 kast,
+	//samt hvorvidt de stemmer overens med den teoretiske sandsynlighed.
+	
 	public void testRollDice() {
 		int[] rolls = new int[1000];
 		int twoCount = 0, threeCount = 0, fourCount = 0, fiveCount = 0, sixCount = 0, sevenCount = 0, eightCount = 0, nineCount = 0,
@@ -83,7 +88,15 @@ public class DiceTest {
 	}
 
 	@Test
-	public void testGetFaceValue() {
+	public void testGetFaceValue() { //skal teste terningen, således for at finde ud af om terningen faktisk lægger inden for 1-6
+		
+			testDice1.faceValue(testDice1);
+			
+			int expected = 7;
+			
+			int actual = testDice.faceValue();
+			
+			assertEquals(expected, actual);
 		
 	}
 
