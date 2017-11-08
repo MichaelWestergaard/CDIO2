@@ -9,8 +9,12 @@ public class Player {
 		this.name = name;
 	}
 	
-	public Account getAccount() {
-		return account;
+	public void addPoints(int points) {
+		account.setBalance(points);
+	}
+	
+	public int getPoints() {
+		return account.getBalance();
 	}
 
 	public String getName() {
