@@ -2,12 +2,15 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game.Game;
 import Game.Language;
+import Game.Player;
 
 public class GameTest {
 
@@ -24,7 +27,16 @@ public class GameTest {
 
 	@Test
 	public void testGetWinner() {
-		fail("Not yet implemented");
+		Player Player1, Player2;
+		game = new Game();
+		lang = new Language();
+		game.gameText = lang.languageSetup("Dansk.txt");
+		
+		if (Player1.getPoints() > Player2.getPoints()) {
+			return String.format(gameText.get("vinderTekst"), Player1.getName(), Player1.getPoints();
+		} else {
+			return String.format(gameText.get("vinderTekst"), Player2.getName(), Player2.getPoints();
+		}
 	}
 
 	@Test //Tester om sumToPoints() giver det rigtige antal point for hvert slag.
