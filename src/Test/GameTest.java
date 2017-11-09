@@ -6,7 +6,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import Game.Game;
+import Game.Player;
+
 public class GameTest {
+	
+	Game game;
+	Player testPlayer = new Player("test");
 
 	@Before
 	public void setUp() throws Exception {
@@ -43,7 +49,10 @@ public class GameTest {
 
 	@Test
 	public void testShowScore() {
-		fail("Not yet implemented");
+		int expected = 1000;
+		int actual = testPlayer.getPoints();
+		
+		assertEquals(expected, actual);
 	}
 
 }
