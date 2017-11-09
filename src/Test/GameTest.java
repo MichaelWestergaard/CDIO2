@@ -2,11 +2,14 @@ package Test;
 
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import Game.Game;
+import Game.Language;
 
 public class GameTest {
 
@@ -26,7 +29,10 @@ public class GameTest {
 	}
 
 	@Test
-	public void testSumToPoints() {		
+	public void testSumToPoints() {
+		Language lang = new Language();
+		game.gameText = lang.languageSetup("Dansk.txt");
+		
 		//game = new Game();
 		//int complete = 0;
 		//int[] feltvalue = {250, -100, 100, -20, 180, 0, -70, 60, -80, -50, 650};
@@ -41,8 +47,8 @@ public class GameTest {
 			//}
 			//System.out.println(complete);
 		//}
-		
-		System.out.println(game.sumToPoints(sum));
+		int points = game.sumToPoints(sum);
+		System.out.println(points);
 		
 		//assertEquals(expected, actual);
 		
