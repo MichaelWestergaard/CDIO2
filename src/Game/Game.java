@@ -47,7 +47,7 @@ public class Game {
 			showScore();
 
 			if (Player1.getPoints() >= 3000 || Player2.getPoints() >= 3000) {
-				getWinner();
+				System.out.println(getWinner());
 			} else {
 				System.out.println(gameText.get("næsteTur"));
 				pressEnter();
@@ -56,11 +56,11 @@ public class Game {
 
 	}
 	
-	public void getWinner() {
+	public String getWinner() {
 		if (Player1.getPoints() > Player2.getPoints()) {
-			System.out.println(String.format(gameText.get("vinderTekst"), Player1.getName(), Player1.getPoints()));
+			return String.format(gameText.get("vinderTekst"), Player1.getName(), Player1.getPoints());
 		} else {
-			System.out.println(String.format(gameText.get("vinderTekst"), Player2.getName(), Player2.getPoints()));
+			return String.format(gameText.get("vinderTekst"), Player2.getName(), Player2.getPoints());
 		}
 	}
 
