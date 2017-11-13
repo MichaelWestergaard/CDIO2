@@ -1,0 +1,38 @@
+vælgNavn1
+Spiller 1 vælger sit navn
+vælgNavn2
+Spiller 2 vælger sit navn
+spilStart
+Tryk [Enter] for at starte spillet
+næsteTur
+Tryk [ENTER] for at skifte tur
+felt2
+Du opdager ruinerne af et tårn, hvor i du finder nogle forhistoriske artefakter. Du får 250 point.
+felt3
+På din rejse passerer du et krater, hvor en radioaktivt isotop har ramt jorden. Du bliver udsat for stråling og mister 100 point.
+felt4
+En af paladsets portvagter beder dig løbe et ærinde og betaler dig 100 point.		
+felt5
+Du trodser det kolde ørkenklima, men mister 20 point.
+felt6
+Da du er på vej ind af byens port, ser du en adelsmand tabe sin pung. Du finder 180 point.
+felt7
+Du overnatter på et kloster og vågner veludhvilet.
+felt8
+Du begiver dig ind i en mørk og dyster grotte, men vender straks om da du hører skrig fra grottens dyb. Du kan mærke øjne der observerer dig og mister 70 point.			
+felt9
+Du jager en bjørn i en afsides bjergby og beboerne belønner dig 60 point.
+felt10
+En vinternat hvor fuldmånen står højt pÂ himlen runder du et skovbryn, og ser pludselig en enorm mur indhyllet i tåge, hvorpå grotekse og forvredne ulveskikkelser patruljerer. Du gnider febrilsk øjnene, og da du åbner dem igen befinder du dig i din lejr fra i morges. Du mister 80 point, men får en ekstra tur
+felt11
+Du ser en fordybning i jorden, men da du læner dig ind over hullet taber du din hat og mister 50 point.		
+felt12
+Du finder guld i bjergene, sælger det, og tjener 650 point.
+ugyldigtFelt
+Ugyldigt terningekast
+vinderTekst
+%s vandt med %s point
+scoreText
+Pengebeholdning:
+playerTurn
+--- %ss tur ---
